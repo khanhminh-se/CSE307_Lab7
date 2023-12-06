@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Problem 7</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+       <style>
+        td{
+        width: fit-content;
+       }
+       </style>
+     
+    </head>
+    <body >
+        <div>
+            <h1>User Management</h1>
+        </div>
+        <form>
+
+            <table   id="result" border="1" cellspacing="0" cellpadding="5">
+               
+                
+            </table>
+            
+        </form>
+        <script>
+            async function GetData(){
+                var url = ' https://fakestoreapi.com/users';
+                var data;
+                data = await fetch(url)
+                .then((res) => res.json())
+                .then((json) => data = json);
+                console.log(data);
+                RenderItem(data);
+            }
+            async function RenderItem(data){
+                console.log("Those IDs are :");
+                const dataList = data;
+                var str="";
+                str += `<tr> <th> Email </th> <th> Username</th><th>Password</th><th>First Name</th> <th>Last Name</th><th>Phone</th><th>Address</th></tr>`;
+                for(var i = 0; i < dataList.length;i++){
+                    str += `<tr><td>${dataList[i].email}</td>
+                                <td> ${dataList[i].username}</td>
+                                <td> <input type="password" value ="${dataList[i].password}"> </td>
+                                <td>${dataList[i].name.firstname}</td>
+                                <td>${dataList[i].name.lastname}</td>
+                                <td>${dataList[i].phone}</td>
+                                <td>${dataList[i].address.number}-${dataList[i].address.street}-${dataList[i].address.city}</td></tr>`;
+                }
+                document.getElementById("result").innerHTML=str;
+            }
+            GetData();
+        </script>
+    </body>
+</html>

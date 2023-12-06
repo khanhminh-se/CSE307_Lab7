@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Problem 5</title>
+    
+    <style>
+        div#container{
+            padding:10px;
+            
+        }
+        .row_alert{
+            margin:20px;
+        }
+        #dangeralert{
+            border:1px solid #fb413f;
+            background-color: #fb413f;
+            color:azure;
+            width:550px;
+            height: fit-content;
+        }
+        #successalert{
+            border:1px solid #00aa71;
+            background-color: #00aa71;
+            color:azure;
+            width:550px;
+            height: fit-content;
+        }
+        #inforalert{
+            border:1px solid #0096ee;
+            background-color: #0096ee;
+            color:azure;
+            width:550px;
+            height: fit-content;
+        }
+        #warningalert{
+            border:1px solid #ff9730;
+            background-color: #ff9730;
+            color:azure;
+            width:550px;
+            height: fit-content;
+        }
+       p{
+            padding-left: 10px;
+            font-size: larger;
+        }
+        span.close-btn{
+            color:white;
+            cursor: pointer;
+            font-size: 30px;
+        }
+        div#dangeralert .close-btn{
+            position: absolute;
+           right:50px;
+        }
+        div#successalert .close-btn{
+            position: absolute;
+            right: 50px;
+        }
+        div#inforalert .close-btn{
+            position: absolute;
+            right: 50px;
+        }
+        div#warningalert .close-btn{
+            position: absolute;
+
+            right: 50px;
+        }
+        .close-btn{
+            padding-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="dangeralert" class="row_alert">
+            <span onclick="closeButtonAction('dangeralert')" class="close-btn">&times;</span>
+            <p><strong>Danger!</strong> Indicates a dangerous or potentially negative action</p>
+    
+        </div>
+        <div id="successalert" class="row_alert">
+            <span onclick="closeButtonAction('successalert')" class="close-btn">&times;</span>
+            <p><strong>Success!</strong> Indicates a successful or positive action</p>
+    
+        </div>
+        <div id="inforalert" class="row_alert">
+            <span onclick="closeButtonAction('inforalert')" class="close-btn">&times;</span>
+            <p class="alert"><strong>Infor!</strong> Indicates a neutral informative change or action</p>
+    
+        </div>
+        <div id="warningalert" class="row_alert">
+            <span onclick="closeButtonAction('warningalert')" class="close-btn">&times;</span>
+            <p><strong>Warning!</strong>Indicates a warning that might need attention</p>
+        </div>
+    </div>
+    <script>
+        function closeButtonAction(id){
+            var alert =  document.getElementById(id);
+            alert.style.display="none";
+        }
+        function closeAlertAfter() {
+            var autoDisappearAlert = document.getElementsByClassName("row_alert");
+            for (let each of autoDisappearAlert) {
+                setTimeout(function () {
+                    each.style.display = "none";
+                }, 5000);
+            };
+        }
+        closeAlertAfter();
+        
+    </script>
+</body>
+
+</html>

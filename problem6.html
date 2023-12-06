@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head>
+    <title>Registration Form</title>
+    <meta charset="utf-f8">
+    <style>
+        #table td{
+            margin:10px;
+            padding:20px;
+        }
+        #table th{
+           width: 230px;
+        }
+        #table td{
+            width:500px;
+        }
+        .input1{
+            width: 100%;
+            height: 30px;
+        }
+        p{
+            color:red;
+        }
+    </style>
+    <script>
+        function myFNameFunction(){
+            var x = document.getElementById("fullname").value;
+            if(x.length ==0){
+                document.getElementById("fnameValidation").innerHTML= "Please input your name";
+            }else{
+                document.getElementById("fnameValidation").innerHTML= "";
+            }
+        }
+        function myEmailFunction(){
+            var y = document.getElementById("email1").value;
+            if(y.length == 0){
+                document.getElementById("emailValidation").innerHTML="Please input your email";
+            }else{
+                document.getElementById("emailValidation").innerHTML="";
+            }
+        }
+        function myPasswordFunction(){
+            var z = document.getElementById("password1").value;
+            if(z.length < 6){
+                document.getElementById("passwordValidation").innerHTML ="Please input password (min-length= 6)";
+            }else{
+                document.getElementById("passwordValidation").innerHTML ="";
+            }
+        }
+        function myConfirmFunction(){
+            var t = document.getElementById("confirm").value;
+            var password = document.getElementById("password1").value;
+            let result = t.localeCompare(password);
+            if(  result != 0){
+                document.getElementById("confirmValidation").innerHTML="It does not match your password";
+            }else{
+                document.getElementById("confirmValidation").innerHTML="";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <table id="table" border="1" cellspacing ="0" cellpadding="0" width ="500px">
+            <tr>
+                <th>Full Name *</th>
+                <td>
+                    <input onblur="myFNameFunction()"  placeholder="Enter your full name"  id ="fullname" class="input1" type="text" name="fullname"/>
+                    <p id="fnameValidation"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Email *</th>
+                <td >
+                    <input  onblur="myEmailFunction()" id="email1" class="input1"  type="email" required="true" pattern="[^ @]*@[^ @].[^ @]" />
+                    <p id="emailValidation"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Password *</th>
+                <td> <input onchange="myPasswordFunction()" id ="password1" class="input1"  type="password" name="password" required />
+                    <p id="passwordValidation"></p>
+                </td>
+                
+            </tr>
+            <tr>
+                <th>Confirm Password *</th>
+                <td > <input id="confirm"  onchange="myConfirmFunction()" class="input1"  type="password" name="password" required />
+                    <p id="confirmValidation"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Phone Number *</th>
+                <td>
+                    <input  class="input1"  type="tel" name ="pNumber" title="pNumber"  maxlength="10" />
+                </td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>
+                    <textarea  class="input1"  id="address" name ="address" cols = "15" ,rows="2"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>
+                    <input  type="text" style="width: 150px;margin-right: 5px;height: 30px;" name ="cityname" placeholder="Enter your city"> <b>State </b><input style="width: 100px;height: 30px;" type ="text" name = "statename" placeholder ="Enter your state">
+                </td>
+               
+            </tr>
+            <tr>
+                <th>Zip/Postal Code</th>
+                <td>
+                    <input class="input1"  type="text" name ="zipCode" placeholder="Enter your Zip/Postalcode" />
+                </td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td >
+                    <select style="width: 100%;height: 30px;" name ="Select the country" width ="350px">
+                        <option value ="value0" selected="select">Select your country</option>
+                        <option value ="value1" selected="select">Vietnam</option>
+                        <option value ="value2" selected="select">Japan</option>
+                        <option value ="value3" selected="select">Brasil</option>
+                        <option value ="value4" selected="select">Korea</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>
+                    <input class="input1"  type="date" name="birthday" id ="birthday" >
+                </td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>
+                    <select style="width: 100%;height: 30px;" name ="gender" >
+                        <option value="value1" selected="select">Male</option>
+                        <option value="value2">Female</option>
+                        <option value ="value3">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Starting Date</th>
+                <td>
+                    <input type="radio" name ="season" id ="spring"  /> Spring
+                    <input type="radio" name ="season" id="summer" /> Summer                    
+                </td>
+            </tr>
+            <tr>
+                <th>Comments</th>
+                <td>
+                    <textarea  class="input1" id="comments" name ="comments" cols ="15" rows="2" placeholder="Please send us your information"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan ="20"><center>
+                    <button type ="submit" required>Submit</button>
+                </center></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

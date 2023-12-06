@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem 4</title>
+    <script>
+        function closeExtendImage(){
+            var extendImage = document.getElementById("expandImage");
+            extendImage.style.display="none";
+        }
+        function myFunction(imgs) {
+            var extendImage = document.getElementById("extendImage");
+            var imageText = document.getElementById("imageText");
+            extendImage.src = imgs.src;
+            imageText.innerHTML = imgs.alt;
+            document.getElementById("expandImage").style.display="block";
+        }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .column {
+            float: left;
+            width: 25%;
+            padding: 10px;
+
+        }
+
+        .column img {
+            opacity: 0.9;
+            cursor: pointer;
+            height: 200px;
+        }
+
+        .column img:hover {
+            height: 150px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .container {
+            position: relative;
+            display: none;
+        }
+
+        #imageText {
+            left: 15px;
+            color: blue;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        
+
+        .closebtn {
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            color: red;
+            font-size: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <img src="\Lab7_img\harrypotter.png" alt="Harry Potter" style="width: 100%;" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="\Lab7_img\Davinci.png" alt="Davinci Code" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="\Lab7_img\BARC.png" alt="BARC Book" style="width: 100%;" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="\Lab7_img\VisualBasic.png" alt="Visual Basic" style="width: 100%;" onclick="myFunction(this);">
+        </div>
+    </div>
+    <div  id="expandImage" class="container">
+        <span  onclick="closeExtendImage()" class="closebtn">&times;</span>
+        <div id="imageText"></div>
+        <img id="extendImage" style="width: 100%;">
+        
+    </div>
+
+</body>
+
+</html>

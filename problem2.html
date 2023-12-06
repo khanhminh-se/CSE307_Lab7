@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Problem 2</title>
+        <script>
+            function myFunction(){
+               const firstPEle= document.querySelector('p.example');
+               firstPEle.style.color="blue";
+               firstPEle.style.backgroundColor = "yellow";
+               const firstAEle = document.querySelector("div > a");
+               firstAEle.border="1px solid red";
+            }
+        </script>
+    </head>
+    <body>
+       <div>
+        <p class="example" style="background-color:aqua;color:greenyellow;width: fit-content;">This is the first paragraph with class "example"</p>
+        <p>This is another paragraph</p>
+        <a href="https://www.w3schools.com/js/default.asp" target="_self">Link with target atrribute</a>
+       <div>
+        <button type="button" onclick="myFunction()">Submit</button>
+       </div>
+       </div>
+      
+    </body>
+</html>

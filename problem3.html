@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Problem 2</title>
+    <script>
+        function myFunction() {
+
+            const firstPEle = document.querySelectorAll('p.example');
+            for (let each of firstPEle) {
+                each.style.color = "black";
+                each.style.backgroundColor = "aqua";
+                each.style.border = "1px solid greenyellow";
+            }
+            const firstAEle = document.querySelectorAll("div > a");
+
+            for (let each of firstAEle) {
+                each.style.border = "1px solid red";
+                each.style.textDecoration = "none";
+            }
+            var firstDiv = document.querySelector("div");
+            firstDiv.style.margin = "10px;"
+            firstDiv.style.padding = "10px"
+            const firstHead = document.querySelectorAll(".title");
+            for (let each of firstHead) {
+                each.style.color = "yellow";
+                console.log('test');
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="example" style="border:1px solid black;background-color:aqua;color:greenyellow;width: fit-content;">
+            This is the first paragraph with class "example"</p>
+        <p class="example" style="border:1px solid black;background-color: aqua;color:greenyellow;width: fit-content;">
+            Another paragraph with class "example"</p>
+        <p>This is a regular paragraph</p>
+        <a href="https://www.w3schools.com/js/default.asp" target="_self">Link with target atrribute</a>
+        <br>
+        <a href="https://www.w3schools.com/js/default.asp" target="_self">Another link with target atrribute</a>
+        <div>
+            <button type="button" onclick="myFunction()">Submit</button>
+        </div>
+    </div>
+    <h1 class="title" style="color:blueviolet ">Tile 1</h1>
+    <h2 class="title" style="color:blueviolet">Tile 2</h2>
+</body>
+
+</html>
